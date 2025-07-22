@@ -11,7 +11,7 @@ const screens = [
     name: 'BottomTab',
     component : BottomTab
   }
-];
+];  
 
 const MainStack = () => {
   return (

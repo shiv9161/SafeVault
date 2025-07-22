@@ -10,6 +10,8 @@ import {
   FileText,
   Settings,
 } from "lucide-react-native"; 
+import { Platform } from "react-native";
+import { Colors } from "../../utils/Colors";
 
 const Tab = createBottomTabNavigator();
 
@@ -27,6 +29,8 @@ const BottomTab = () => {
           height: 60,
           paddingBottom: 5,
           paddingTop: 5,
+          marginBottom: Platform.OS === 'ios'? 20 : 0,
+          backgroundColor: Colors.white
         },
         tabBarIcon: ({ color, size, focused }) => {
           const iconProps = { color, size: 22, strokeWidth: focused ? 2.5 : 1.5 };
