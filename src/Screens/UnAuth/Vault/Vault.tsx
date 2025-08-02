@@ -1,9 +1,31 @@
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { Shield } from 'lucide-react-native'
+import { CreditCard, FolderClosed, Lock, Notebook, Shield } from 'lucide-react-native'
 import { Colors } from '../../../../utils/Colors'
 
 const Vault = () => {
+  const data = [
+    {
+      total: 12,
+      name: 'Passwords',
+      icon: <Lock size={22} color={Colors.blue} strokeWidth={2} />
+    },
+    {
+      total: 8,
+      name: 'Notes',
+      icon: <Notebook size={22} color={Colors.blue} strokeWidth={2} />
+    },
+    {
+      total: 3,
+      name: 'Cards',
+      icon: <CreditCard size={22} color={Colors.blue} strokeWidth={2} />
+    },
+    {
+      total: 12,
+      name: 'Documents',
+      icon: <FolderClosed size={22} color={Colors.blue} strokeWidth={2} />
+    },
+  ]
   return (
 
     <SafeAreaView style={{ flex: 1 }}>
@@ -30,6 +52,25 @@ const Vault = () => {
             </View>
           </View>
         </View>
+
+        <View style={{ flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-between', marginTop: 20 }}>
+          {
+            data?.map((item, index) => {
+              return (
+                <View style={{ borderWidth: 1, width: '23%', borderRadius: 12, alignItems: 'center', padding: 10 }} key={index}>
+                  <View style={{ borderWidth: 1, padding: 10, borderRadius: 50 }}>
+                    {item?.icon}
+                  </View>
+                  <View style={{alignItems: 'center', marginTop: 10}}>
+                    <Text>{item?.total}</Text>
+                    <Text style={{textAlign: 'center', marginTop: 5}}>{item?.name}</Text>
+                  </View>
+                </View>
+              )
+            })
+          }
+        </View>
+
       </View>
     </SafeAreaView>
   )
