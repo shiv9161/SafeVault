@@ -1,9 +1,10 @@
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { CreditCard, FolderClosed, Lock, Notebook, Shield } from 'lucide-react-native'
 import { Colors } from '../../../../utils/Colors'
 import HomeCard from './component/HomeCard'
 import QuickAction from './component/QuickAction'
+import RecentActivity from './component/RecentActivity'
 
 const Vault = () => {
 
@@ -13,7 +14,10 @@ const Vault = () => {
       <View style={styles.container}>
 
         <View style={styles.topHeader}>
-          <Text style={styles.topHeaderPara}>Your Vault is Secure</Text>
+          <View>
+            <Text style={styles.topHeaderParaOne}>Good Morning</Text>
+            <Text style={styles.topHeaderPara}>Your Vault is Secure</Text>
+          </View>
           <View style={styles.topHeaderShield}>
             <Shield size={22} color={Colors.blue} strokeWidth={2} />
           </View>
@@ -34,9 +38,14 @@ const Vault = () => {
           </View>
         </View>
 
-        <HomeCard />
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <HomeCard />
 
-        <QuickAction />
+          <QuickAction />
+
+          <RecentActivity />
+        </ScrollView>
+
 
       </View>
     </SafeAreaView>
@@ -60,6 +69,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     color: Colors.black
+  },
+  topHeaderParaOne: {
+    fontSize: 12,
+    fontWeight: '500',
+    marginBottom: 5
   },
   topHeaderShield: {
     padding: 10,
